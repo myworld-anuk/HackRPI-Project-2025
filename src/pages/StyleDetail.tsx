@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import heroImage from "@/assets/hero-fashion.jpg";
 
 interface StyleData {
   decade: string;
@@ -136,8 +137,15 @@ const StyleDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+      <header className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#441634]/40 to-[#441634]" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 py-10">
           <Button
             variant="ghost"
             onClick={() => navigate("/")}
@@ -147,7 +155,7 @@ const StyleDetail = () => {
           </Button>
           <div className="space-y-2">
             <div className="text-5xl font-bold text-primary">{data.decade}</div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#717744]">
               {data.title}
             </h1>
           </div>
@@ -157,23 +165,23 @@ const StyleDetail = () => {
       <main className="max-w-7xl mx-auto px-4 py-12 space-y-16">
         {/* Overview */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-foreground">About This Era</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <h2 className="text-2xl font-bold text-[#717744]">About This Era</h2>
+          <p className="text-lg text-[#717744] leading-relaxed">
             {data.fullDescription}
           </p>
         </section>
 
         {/* Timeline */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-foreground">Fashion Timeline</h2>
+          <h2 className="text-2xl font-bold text-[#717744]">Fashion Timeline</h2>
           <div className="space-y-4">
             {data.timeline.map((item, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} className="p-6 bg-[#FFF3AE]">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-32 font-bold text-primary">
                     {item.year}
                   </div>
-                  <p className="text-muted-foreground">{item.event}</p>
+                  <p className="text-[#717744]">{item.event}</p>
                 </div>
               </Card>
             ))}
@@ -182,14 +190,14 @@ const StyleDetail = () => {
 
         {/* Style Elements */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-foreground">Signature Style Elements</h2>
+          <h2 className="text-2xl font-bold text-[#717744]">Signature Style Elements</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {data.styleElements.map((element, index) => (
-              <Card key={index} className="p-6 space-y-3">
-                <h3 className="text-lg font-semibold text-foreground">
+              <Card key={index} className="p-6 space-y-3 bg-[#FFF3AE]">
+                <h3 className="text-lg font-semibold text-[#717744]">
                   {element.name}
                 </h3>
-                <p className="text-muted-foreground">{element.description}</p>
+                <p className="text-[#717744]">{element.description}</p>
               </Card>
             ))}
           </div>
@@ -198,29 +206,28 @@ const StyleDetail = () => {
         {/* Shopping Sites */}
         <section className="space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold text-foreground">Where to Shop</h2>
-            <p className="text-muted-foreground">
+            <h2 className="text-2xl font-bold text-[#717744]">Where to Shop</h2>
+            <p className="text-[#717744]">
               Find authentic {data.decade} pieces and modern interpretations at these retailers
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {data.shoppingSites.map((site, index) => (
-              <Card key={index} className="p-6 space-y-4">
+              <Card key={index} className="p-6 space-y-4 bg-[#FFF3AE]">
                 <div className="flex items-start justify-between">
                   <div className="space-y-1">
-                    <h3 className="text-xl font-semibold text-foreground">
+                    <h3 className="text-xl font-semibold text-[#717744]">
                       {site.name}
                     </h3>
                     <p className="text-sm text-primary font-medium">
                       {site.priceRange}
                     </p>
                   </div>
-                  <ExternalLink className="text-muted-foreground" size={20} />
+                  <ExternalLink className="text-[#717744]" size={20} />
                 </div>
-                <p className="text-muted-foreground">{site.description}</p>
+                <p className="text-[#717744]">{site.description}</p>
                 <Button
-                  variant="outline"
-                  className="w-full"
+                  className="w-full bg-[#A5668B] text-white hover:bg-[#8c4f73] border-none"
                   onClick={() => window.open(site.url, "_blank")}
                 >
                   Visit Store
@@ -232,8 +239,8 @@ const StyleDetail = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border mt-24 py-8">
-        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-muted-foreground">
+      <footer className="mt-24 py-8 bg-gradient-to-t from-[#FFF3AE] via-[#FFF3AE]/40 to-[#441634]">
+        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-[#717744]">
           <p>Discover fashion through the decades</p>
         </div>
       </footer>
