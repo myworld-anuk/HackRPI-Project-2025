@@ -47,7 +47,7 @@ export const Timeline = () => {
   return (
     <div className="space-y-12">
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#717744]">
           Explore Fashion Through Time
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -64,7 +64,7 @@ export const Timeline = () => {
           {periods.map((period) => (
             <Card
               key={period.decade}
-              className="p-6 space-y-4 hover:shadow-lg transition-all duration-300 cursor-pointer bg-card border-2 hover:border-primary"
+              className="p-6 space-y-4 hover:shadow-lg transition-all duration-300 cursor-pointer bg-[#FFF3AE] border-2 hover:border-primary"
               onClick={() => navigate(`/style/${period.route}`)}
             >
               <div className="space-y-2">
@@ -90,7 +90,7 @@ export const Timeline = () => {
                 </div>
               </div>
 
-              <Button className="w-full" variant="outline">
+              <Button className="w-full bg-[#373D20] text-white hover:bg-[#2c3119] border-none">
                 Explore {period.decade}
               </Button>
             </Card>
