@@ -1,0 +1,362 @@
+{
+  "1970s": [
+    {
+      "year": 2004,
+      "popularity": 26.5
+    },
+    {
+      "year": 2005,
+      "popularity": 23.7
+    },
+    {
+      "year": 2006,
+      "popularity": 23.6
+    },
+    {
+      "year": 2007,
+      "popularity": 21.2
+    },
+    {
+      "year": 2008,
+      "popularity": 18.0
+    },
+    {
+      "year": 2009,
+      "popularity": 17.0
+    },
+    {
+      "year": 2010,
+      "popularity": 14.9
+    },
+    {
+      "year": 2011,
+      "popularity": 16.2
+    },
+    {
+      "year": 2012,
+      "popularity": 19.5
+    },
+    {
+      "year": 2013,
+      "popularity": 16.7
+    },
+    {
+      "year": 2014,
+      "popularity": 16.0
+    },
+    {
+      "year": 2015,
+      "popularity": 19.0
+    },
+    {
+      "year": 2016,
+      "popularity": 21.0
+    },
+    {
+      "year": 2017,
+      "popularity": 22.2
+    },
+    {
+      "year": 2018,
+      "popularity": 22.8
+    },
+    {
+      "year": 2019,
+      "popularity": 23.8
+    },
+    {
+      "year": 2020,
+      "popularity": 15.3
+    },
+    {
+      "year": 2021,
+      "popularity": 19.5
+    },
+    {
+      "year": 2022,
+      "popularity": 21.0
+    },
+    {
+      "year": 2023,
+      "popularity": 16.7
+    },
+    {
+      "year": 2024,
+      "popularity": 13.6
+    },
+    {
+      "year": 2025,
+      "popularity": 11.5
+    }
+  ],
+  "1980s": [
+    {
+      "year": 2004,
+      "popularity": 9.8
+    },
+    {
+      "year": 2005,
+      "popularity": 9.2
+    },
+    {
+      "year": 2006,
+      "popularity": 9.7
+    },
+    {
+      "year": 2007,
+      "popularity": 11.1
+    },
+    {
+      "year": 2008,
+      "popularity": 9.7
+    },
+    {
+      "year": 2009,
+      "popularity": 11.1
+    },
+    {
+      "year": 2010,
+      "popularity": 9.6
+    },
+    {
+      "year": 2011,
+      "popularity": 8.1
+    },
+    {
+      "year": 2012,
+      "popularity": 8.9
+    },
+    {
+      "year": 2013,
+      "popularity": 10.7
+    },
+    {
+      "year": 2014,
+      "popularity": 10.3
+    },
+    {
+      "year": 2015,
+      "popularity": 11.8
+    },
+    {
+      "year": 2016,
+      "popularity": 13.5
+    },
+    {
+      "year": 2017,
+      "popularity": 16.6
+    },
+    {
+      "year": 2018,
+      "popularity": 17.9
+    },
+    {
+      "year": 2019,
+      "popularity": 19.2
+    },
+    {
+      "year": 2020,
+      "popularity": 11.0
+    },
+    {
+      "year": 2021,
+      "popularity": 12.4
+    },
+    {
+      "year": 2022,
+      "popularity": 14.5
+    },
+    {
+      "year": 2023,
+      "popularity": 10.7
+    },
+    {
+      "year": 2024,
+      "popularity": 9.1
+    },
+    {
+      "year": 2025,
+      "popularity": 7.0
+    }
+  ],
+  "1990s": [
+    {
+      "year": 2004,
+      "popularity": 2.1
+    },
+    {
+      "year": 2005,
+      "popularity": 2.7
+    },
+    {
+      "year": 2006,
+      "popularity": 3.1
+    },
+    {
+      "year": 2007,
+      "popularity": 3.4
+    },
+    {
+      "year": 2008,
+      "popularity": 3.7
+    },
+    {
+      "year": 2009,
+      "popularity": 5.1
+    },
+    {
+      "year": 2010,
+      "popularity": 5.4
+    },
+    {
+      "year": 2011,
+      "popularity": 5.2
+    },
+    {
+      "year": 2012,
+      "popularity": 8.3
+    },
+    {
+      "year": 2013,
+      "popularity": 10.9
+    },
+    {
+      "year": 2014,
+      "popularity": 11.9
+    },
+    {
+      "year": 2015,
+      "popularity": 14.4
+    },
+    {
+      "year": 2016,
+      "popularity": 19.8
+    },
+    {
+      "year": 2017,
+      "popularity": 22.0
+    },
+    {
+      "year": 2018,
+      "popularity": 22.4
+    },
+    {
+      "year": 2019,
+      "popularity": 21.2
+    },
+    {
+      "year": 2020,
+      "popularity": 15.8
+    },
+    {
+      "year": 2021,
+      "popularity": 19.2
+    },
+    {
+      "year": 2022,
+      "popularity": 20.4
+    },
+    {
+      "year": 2023,
+      "popularity": 17.4
+    },
+    {
+      "year": 2024,
+      "popularity": 16.2
+    },
+    {
+      "year": 2025,
+      "popularity": 13.9
+    }
+  ],
+  "2000s": [
+    {
+      "year": 2004,
+      "popularity": 0.5
+    },
+    {
+      "year": 2005,
+      "popularity": 1.1
+    },
+    {
+      "year": 2006,
+      "popularity": 1.9
+    },
+    {
+      "year": 2007,
+      "popularity": 3.2
+    },
+    {
+      "year": 2008,
+      "popularity": 3.2
+    },
+    {
+      "year": 2009,
+      "popularity": 3.6
+    },
+    {
+      "year": 2010,
+      "popularity": 4.0
+    },
+    {
+      "year": 2011,
+      "popularity": 4.3
+    },
+    {
+      "year": 2012,
+      "popularity": 5.4
+    },
+    {
+      "year": 2013,
+      "popularity": 5.1
+    },
+    {
+      "year": 2014,
+      "popularity": 4.6
+    },
+    {
+      "year": 2015,
+      "popularity": 4.5
+    },
+    {
+      "year": 2016,
+      "popularity": 7.0
+    },
+    {
+      "year": 2017,
+      "popularity": 11.9
+    },
+    {
+      "year": 2018,
+      "popularity": 12.1
+    },
+    {
+      "year": 2019,
+      "popularity": 11.7
+    },
+    {
+      "year": 2020,
+      "popularity": 21.9
+    },
+    {
+      "year": 2021,
+      "popularity": 34.5
+    },
+    {
+      "year": 2022,
+      "popularity": 38.9
+    },
+    {
+      "year": 2023,
+      "popularity": 37.0
+    },
+    {
+      "year": 2024,
+      "popularity": 35.9
+    },
+    {
+      "year": 2025,
+      "popularity": 33.8
+    }
+  ]
+}
