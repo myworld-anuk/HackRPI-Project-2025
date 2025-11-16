@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 52 100% 79%;
+    --background: 321 51% 18%;
     --foreground: 314 44% 16%;
 
     --card: 52 100% 95%;
@@ -80,5 +80,38 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .hero-overlay {
+    position: relative;
+  }
+
+  .hero-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* tint using your brand color */
+    background: radial-gradient(circle at top, transparent 0%, #441634cc 55%, #441634 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-animate {
+    animation: heroMove 50s ease-in-out infinite alternate;
+    background-size: 110% 110%;
+  }
+
+  @keyframes heroMove {
+    0% {
+      background-position: 50% 0%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
   }
 }
