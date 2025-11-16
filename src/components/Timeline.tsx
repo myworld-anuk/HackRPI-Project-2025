@@ -57,7 +57,7 @@ export const Timeline = () => {
 
       <div className="relative">
         {/* Timeline line */}
-        <div className="hidden md:block absolute left-0 right-0 top-1/2 h-1 bg-border -translate-y-1/2" />
+        <div className="hidden md:block absolute top-1/2 w-screen left-1/2 -translate-x-1/2 -translate-y-1/2 border-t-4 border-dotted border-[#A5668B] z-0" />
         
         {/* Timeline periods */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
