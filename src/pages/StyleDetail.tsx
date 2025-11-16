@@ -3,6 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import heroImage from "@/assets/hero-fashion.jpg";
+import predictions from "@/data/retroPredictions.json";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+} from "recharts";
+import { revivalHistory } from "@/data/revivalHistory";
 
 interface StyleData {
   decade: string;
@@ -120,130 +131,178 @@ const StyleDetail = () => {
   const navigate = useNavigate();
   
   const data = period ? styleData[period] : null;
-
+  
   if (!data) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center space-y-4">
-          <h1 className="text-3xl font-bold text-foreground">Style Not Found</h1>
-          <Button onClick={() => navigate("/")}>
-            <ArrowLeft className="mr-2" /> Back to Timeline
-          </Button>
-        </div>
+      <div className="text-center space-y-4">
+      <h1 className="text-3xl font-bold text-foreground">Style Not Found</h1>
+      <Button onClick={() => navigate("/")}>
+      <ArrowLeft className="mr-2" /> Back to Timeline
+      </Button>
+      </div>
       </div>
     );
   }
-
+  
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#441634]/40 to-[#441634]" />
-        </div>
+    {/* Header */}
+    <header className="relative overflow-hidden">
+    <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: `url(${heroImage})` }}
+    >
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#441634]/40 to-[#441634]" />
+    </div>
+    
+    <div className="relative max-w-7xl mx-auto px-4 py-10">
+    <Button
+    variant="ghost"
+    onClick={() => navigate("/")}
+    className="mb-4"
+    >
+    <ArrowLeft className="mr-2" /> Back to Timeline
+    </Button>
+    <div className="space-y-2">
+    <div className="text-5xl font-bold text-primary">{data.decade}</div>
+    <h1 className="text-3xl md:text-4xl font-bold text-[#717744]">
+    {data.title}
+    </h1>
+    </div>
+    </div>
+    </header>
+    
+    <main className="max-w-7xl mx-auto px-4 py-12 space-y-16">
+    {/* Overview */}
+    <section className="space-y-6">
+    <h2 className="text-2xl font-bold text-[#717744]">About This Era</h2>
+    <p className="text-lg text-[#717744] leading-relaxed">
+    {data.fullDescription}
+    </p>
+    </section>
+    
+    {/* Timeline */}
+    <section className="space-y-6">
+    <h2 className="text-2xl font-bold text-[#717744]">Fashion Timeline</h2>
+    <div className="space-y-4">
+    {data.timeline.map((item, index) => (
+      <Card key={index} className="p-6 bg-[#FFF3AE]">
+      <div className="flex items-start gap-4">
+      <div className="flex-shrink-0 w-32 font-bold text-primary">
+      {item.year}
+      </div>
+      <p className="text-[#717744]">{item.event}</p>
+      </div>
+      </Card>
+    ))}
+    </div>
+    </section>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-10">
-          <Button
-            variant="ghost"
-            onClick={() => navigate("/")}
-            className="mb-4"
-          >
-            <ArrowLeft className="mr-2" /> Back to Timeline
-          </Button>
-          <div className="space-y-2">
-            <div className="text-5xl font-bold text-primary">{data.decade}</div>
-            <h1 className="text-3xl md:text-4xl font-bold text-[#717744]">
-              {data.title}
-            </h1>
-          </div>
+    {/* Revival Prediction */}
+    <section className="space-y-6 mt-10">
+      <h2 className="text-2xl font-bold text-[#717744]">Revival Prediction</h2>
+      <div className="bg-[#FFF3AE] rounded-2xl p-6 shadow-md space-y-6">
+        <div className="w-full h-64">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={revivalHistory[data.decade] ?? []}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5d6a8" />
+              <XAxis dataKey="year" stroke="#717744" />
+              <YAxis stroke="#717744" />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#FFF3AE",
+                  borderRadius: "0.75rem",
+                  border: "1px solid #A5668B",
+                }}
+                labelStyle={{ color: "#717744" }}
+              />
+              <Line
+                type="monotone"
+                dataKey="popularity"
+                stroke="#A5668B"
+                strokeWidth={3}
+                dot={{ r: 4, stroke: "#441634", strokeWidth: 1, fill: "#A5668B" }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
-      </header>
-
-      <main className="max-w-7xl mx-auto px-4 py-12 space-y-16">
-        {/* Overview */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-[#717744]">About This Era</h2>
-          <p className="text-lg text-[#717744] leading-relaxed">
-            {data.fullDescription}
+        {predictions[data.decade] ? (
+          <p className="text-[#717744]">
+            Based on historical trend patterns and our forecasting model, we estimate
+            the next major revival of {data.decade} style around
+            <span className="font-semibold text-[#A5668B]">
+              {" "}
+              {predictions[data.decade].nextRevivalYear}
+            </span>.
           </p>
-        </section>
-
-        {/* Timeline */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-[#717744]">Fashion Timeline</h2>
-          <div className="space-y-4">
-            {data.timeline.map((item, index) => (
-              <Card key={index} className="p-6 bg-[#FFF3AE]">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-32 font-bold text-primary">
-                    {item.year}
-                  </div>
-                  <p className="text-[#717744]">{item.event}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Style Elements */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-[#717744]">Signature Style Elements</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data.styleElements.map((element, index) => (
-              <Card key={index} className="p-6 space-y-3 bg-[#FFF3AE]">
-                <h3 className="text-lg font-semibold text-[#717744]">
-                  {element.name}
-                </h3>
-                <p className="text-[#717744]">{element.description}</p>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Shopping Sites */}
-        <section className="space-y-6">
-          <div className="space-y-2">
-            <h2 className="text-2xl font-bold text-[#717744]">Where to Shop</h2>
-            <p className="text-[#717744]">
-              Find authentic {data.decade} pieces and modern interpretations at these retailers
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data.shoppingSites.map((site, index) => (
-              <Card key={index} className="p-6 space-y-4 bg-[#FFF3AE]">
-                <div className="flex items-start justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-xl font-semibold text-[#717744]">
-                      {site.name}
-                    </h3>
-                    <p className="text-sm text-primary font-medium">
-                      {site.priceRange}
-                    </p>
-                  </div>
-                  <ExternalLink className="text-[#717744]" size={20} />
-                </div>
-                <p className="text-[#717744]">{site.description}</p>
-                <Button
-                  className="w-full bg-[#A5668B] text-white hover:bg-[#8c4f73] border-none"
-                  onClick={() => window.open(site.url, "_blank")}
-                >
-                  Visit Store
-                </Button>
-              </Card>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer className="mt-24 py-8 bg-gradient-to-t from-[#FFF3AE] via-[#FFF3AE]/40 to-[#441634]">
-        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-[#717744]">
-          <p>Discover fashion through the decades</p>
-        </div>
-      </footer>
+        ) : (
+          <p className="text-sm text-[#717744]">
+            Prediction data for this era isn&apos;t available yet.
+          </p>
+        )}
+        <p className="text-xs text-[#717744]">
+          This visualization uses stylized historical trend data for educational and exploratory purposes.
+        </p>
+      </div>
+    </section>
+    
+    {/* Style Elements */}
+    <section className="space-y-6">
+    <h2 className="text-2xl font-bold text-[#717744]">Signature Style Elements</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {data.styleElements.map((element, index) => (
+      <Card key={index} className="p-6 space-y-3 bg-[#FFF3AE]">
+      <h3 className="text-lg font-semibold text-[#717744]">
+      {element.name}
+      </h3>
+      <p className="text-[#717744]">{element.description}</p>
+      </Card>
+    ))}
+    </div>
+    </section>
+    
+    {/* Shopping Sites */}
+    <section className="space-y-6">
+    <div className="space-y-2">
+    <h2 className="text-2xl font-bold text-[#717744]">Where to Shop</h2>
+    <p className="text-[#717744]">
+    Find authentic {data.decade} pieces and modern interpretations at these retailers
+    </p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {data.shoppingSites.map((site, index) => (
+      <Card key={index} className="p-6 space-y-4 bg-[#FFF3AE]">
+      <div className="flex items-start justify-between">
+      <div className="space-y-1">
+      <h3 className="text-xl font-semibold text-[#717744]">
+      {site.name}
+      </h3>
+      <p className="text-sm text-primary font-medium">
+      {site.priceRange}
+      </p>
+      </div>
+      <ExternalLink className="text-[#717744]" size={20} />
+      </div>
+      <p className="text-[#717744]">{site.description}</p>
+      <Button
+      className="w-full bg-[#A5668B] text-white hover:bg-[#8c4f73] border-none"
+      onClick={() => window.open(site.url, "_blank")}
+      >
+      Visit Store
+      </Button>
+      </Card>
+    ))}
+    </div>
+    </section>
+    </main>
+    
+    {/* Footer */}
+    <footer className="mt-24 py-8 bg-gradient-to-t from-[#FFF3AE] via-[#FFF3AE]/40 to-[#441634]">
+    <div className="max-w-7xl mx-auto px-4 text-center text-sm text-[#717744]">
+    <p>Discover fashion through the decades</p>
+    </div>
+    </footer>
     </div>
   );
 };
